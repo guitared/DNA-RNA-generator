@@ -2,7 +2,7 @@
 #### Bioinformatics Programming
 
 ###### generator.py
-
+generated DNA or RNA with probability from relative proportions (%) of bases in human DNA, from [Chargaff's rules](https://en.wikipedia.org/wiki/Chargaff%27s_rules)
 ```
 usage: generator.py [-h] [-v] [-d] [-r] [-t] [-f] [-l LENGTH] [-o OUTPUT]
 
