@@ -20,3 +20,20 @@ optional arguments:
   -o OUTPUT, --output OUTPUT
                         generated file name (default:output)
 ```
+###### report.py
+generated complementary DNA sequence of the input sequence, aequence length, and percentage of existence of each base nucleotide as FASTA file
+
+```
+usage: report.py [-h] [-v] [-o OUTPUT] input
+
+DNA Information Report Generator
+
+positional arguments:
+  input                 input data as plain text or FASTA file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --verbose         show information
+  -o OUTPUT, --output OUTPUT
+                        output file name (default:report.fas)
+```

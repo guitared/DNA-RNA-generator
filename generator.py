@@ -4,7 +4,7 @@
 # Bioinformatics Programming
 # by Thatchapatt Kesornsri, 2016
 
-import sys,argparse,random
+import os,sys,argparse,random
 parser = argparse.ArgumentParser(description='DNA or RNA Sequence Random Generator')
 parser.add_argument('-v','--verbose',help='show information',action='store_true')
 parser.add_argument('-d','--dna',help='output DNA type (default)',action='store_true')
@@ -38,20 +38,20 @@ if args.verbose:
 		print 'Generating '+str(args.length)+' random '+type+' sequence...\n'
 output = ''
 for i in range(args.length):
-	if( i>0 and i%80==0 ):
+	if( i>0 and i%70==0 and args.fasta):
 		output += '\n'
 	output += weighted_choice(seq)
 if args.verbose:
 		print output+'\n'
 if args.fasta:
-	outfile = args.output+'.fas'
+	outfile = os.path.splitext(args.output)[0]+'.fas'
 else:
-	outfile = args.output+'.txt'
+	outfile = os.path.splitext(args.output)[0]+'.txt'
 if args.verbose:
 		print 'Saved result to '+outfile+'\n'
 f = open(outfile, 'w')
 if args.fasta:
 	f.write(';DNA/RNA Sequence Random Generator\n')
 	f.write(';Bioinformatics Programming\n')
-	f.write('>'+args.output+'|'+str(args.length)+'| generated '+str(args.length)+' random '+type+' sequence\n')
+	f.write('>'+args.output+'| generated random '+type+' sequence |len='+str(args.length)+'\n')
 f.write(output)
